@@ -1,0 +1,18 @@
+    <nav class="sign-navbar">
+      <div id="inside-nav">	
+        <div id="nav-left">      
+            <div ><a href="/coach/profile"><i class="fa fa-bolt fa-2x" aria-hidden="true"></i></a></div>
+        </div>
+        <div id="nav-mid-inside">
+        	<div>
+        	<%= form_tag '/search' do%>
+            <div id="inside-search"><%= text_field_tag(:search,nil, :placeholder => 'Search..')%></div>
+        	<%end%>
+            </div>
+        	<div id="search-icon-inside"><i class="fa fa-search fa-2x"></i></div>
+        </div>
+        <div id = "nav-right">
+            <div id = "sign-out"><a data-method="delete" href="/coach/logout"><i class="fa fa-sign-out fa-2x" aria-hidden="true"></i></a></div>
+        </div>
+      </div>
+    </nav>

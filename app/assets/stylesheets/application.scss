@@ -1,0 +1,83 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require font-awesome
+ *= require_self
+ */
+@import "bootstrap";
+@import "font-awesome";
+
+body{
+	background-color:#e7edf0;
+	overflow-y: auto;
+}
+
+// Navbar Css start from here
+
+ div#signin{
+ margin-top: 150px;
+ margin-right: 3%;
+ }
+ div#edit{
+ margin-top: 114px;
+ margin-right: 5%;
+ }
+ nav.navbar{
+ position:fixed;
+ display: flex;
+ width:100%;
+ top:0;
+ left:0;
+ height:60px;
+ background-color:#1da1f2;
+ border-color:#1da1f2;
+ box-shadow: 1px 1px 6px;
+ justify-content: space-around;
+ }
+
+ .fa-2x{
+ color:white;
+ }
+
+ #nav-mid{
+ width:23%;
+ display: flex;
+ justify-content:space-between;
+ }
+ #nav-right{
+ display: flex;
+ }
+ #search-icon i{
+ font-size:23px;
+ margin-top:3px;
+ }
+ #sign-in{
+ margin-right: 12px;
+ margin-top:1px;
+ }
+ #search{
+ width:135%;
+ font-family: inherit;
+ padding-left:8px;
+ height:32px;
+ border:1px;
+ border-radius:7px;
+ border-color:#007bff;
+ }
+
+ #profile-link{
+ margin-right:12px;
+ }
+ #setting-link{
+ margin-right:12px;
+ }

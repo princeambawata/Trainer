@@ -1,0 +1,17 @@
+    <nav class="navbar">
+      	
+        <div id="nav-left">      
+            <div ><a href="/coach/profile"><i class="fa fa-bolt fa-2x" aria-hidden="true"></i></a></div>
+        </div>
+        <div id="nav-mid">
+          <%= form_tag '/search' do%>
+            <div><%= text_field_tag(:search,nil, :placeholder => 'Search..')%></div>
+          <%end%>
+          <div id="search-icon"><i class="fa fa-search fa-2x"></i></div>
+        </div>
+        <div id = "nav-right">
+        	<div id = "sign-in"><a data-method="get" href="/coach/signin"><i class="fa fa-sign-in fa-2x" aria-hidden="true"></i></a></div>
+            <div id = "sign-up"><a data-method="get" href="/coach/signup"><i class="fa fa-user-plus fa-2x"></i></a></div>
+        </div>
+      
+    </nav>
