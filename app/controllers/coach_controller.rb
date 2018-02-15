@@ -37,8 +37,7 @@ class CoachController < ApplicationController
   end
 
   def logout
-     Coach.find(session[:user_id]).destroy      
-     session[:user_id] = nil          
+     session["user_id"] = nil;          
      return redirect_to '/coach/signin'
   end
 end

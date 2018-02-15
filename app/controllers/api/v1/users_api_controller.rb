@@ -29,11 +29,12 @@ module Api
         name = params["name"]
         email = params["email"]
         password = params["password"]
+        coach_id = params["coach_id"]
         user = User.find_by_email(email)
         if user
            return response_data({}, "User exist", 200)
         else
-           @user = User.create(email: email,name: name,password: password);
+           @user = User.create(email: email,name: name,password: password,coach_id: coach_id);
            data = Hash.new
            data["access_token"] = @user.access_token
            return response_data(data, "Signed up", 200)

@@ -6,6 +6,6 @@ class AddDetailsToUser < ActiveRecord::Migration[5.0]
     add_column :users, :gender, :string
     add_column :users, :goal, :string
     add_column :users, :schedule, :text
-    add_reference :users, :coach, foreign_key: true
+    add_reference :users, :coach, foreign_key: true,default: nil
   end
 end

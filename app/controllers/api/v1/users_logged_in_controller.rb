@@ -2,9 +2,9 @@ module Api
   module V1
     class UsersLoggedInController < ::ApiController
 
-      include ActionController::HttpAuthentication::Token::ControllerMethods
+      # include ActionController::HttpAuthentication::Token::ControllerMethods
 
-      before_action :authenticate_user, except: [:authenticate_user]
+      # before_action :authenticate_user, except: [:authenticate_user,:feed]
       
 
       def feed
@@ -44,7 +44,7 @@ module Api
         end
 
         unless current_user_api
-          return response_data({},"Not Authorised",401)
+          return response_data({},"Yo YO Authorised",401)
         end
       end
 

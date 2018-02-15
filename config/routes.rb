@@ -19,6 +19,9 @@ Rails.application.routes.draw do
       post '/user/sign_up' => 'users_api#sign_up'
       post '/coach/sign_in' => 'coach_api#sign_in'
       post '/coach/sign_up' => 'coach_api#sign_up'
+      get '/coach/feed' => 'coach_logged_in#feed'
+      post '/coach/update_schedule' => 'coach_logged_in#schedule'
+      post '/user/select_trainer' => 'user_logged_in#select_trainer'
     end
   end
 
