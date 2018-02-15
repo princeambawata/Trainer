@@ -21,7 +21,10 @@ Rails.application.routes.draw do
       post '/coach/sign_up' => 'coach_api#sign_up'
       get '/coach/feed' => 'coach_logged_in#feed'
       post '/coach/update_schedule' => 'coach_logged_in#schedule'
-      post '/user/select_trainer' => 'user_logged_in#select_trainer'
+      post '/user/select_trainer' => 'users_logged_in#select_trainer'
+      get '/user/feed' => 'users_logged_in#feed'
+      get '/user/coach_profile' => 'users_logged_in#coach_profile'
+      post '/user/update_profile' => 'users_logged_in#update_details'
     end
   end
 

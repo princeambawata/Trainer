@@ -2,9 +2,9 @@ module Api
   module V1
     class UsersLoggedInController < ::ApiController
 
-      # include ActionController::HttpAuthentication::Token::ControllerMethods
+      include ActionController::HttpAuthentication::Token::ControllerMethods
 
-      # before_action :authenticate_user, except: [:authenticate_user,:feed]
+      before_action :authenticate_user, except: [:authenticate_user]
       
 
       def feed
@@ -25,16 +25,20 @@ module Api
       def update_details
          current_user_api.update_attributes(height: params["height"],weight: params["weight"],
           lifestyle: params["lifestyle"],goal: params["goal"], gender: params["gender"])
-          return response_data({}, "updated profile",200)
+          data = current_user_api
+          return response_data(data, "updated profile",200)
       end
       
       def select_trainer
          trainer_id = params["trainer_id"]
          trainer = Coach.find(trainer_id)
          if trainer
-            current_user_api.coach_id =  trainer_id
-            return response_data({}, "trainer selected",200)
+            data = Hash.new
+            data["trainer"] = trainer
+            current_user_api.update_attributes(coach_id: trainer_id)
+            return response_data(data, "trainer selected",200)
          else
+            return response_data({}, "trainer Not Found",200)
          end
       end
 

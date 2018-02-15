@@ -2,24 +2,26 @@ module Api
   module V1
     class CoachLoggedInController < ::ApiController
 
-      # include ActionController::HttpAuthentication::Token::ControllerMethods
+      include ActionController::HttpAuthentication::Token::ControllerMethods
 
-      # before_action :authenticate_coach, except: [:authenticate_coach, :feed]
+      before_action :authenticate_coach, except: [:authenticate_coach]
 
       def feed
-         data = User.all
+         data = current_coach_api.users
          return response_data(data, "Your Feed",200)
       end
 
       def schedule
           user_id = params["user_id"]
           schedule = params["schedule"]
-          user = User.find(user_id)
+          user = current_coach_api.users.where(id: user_id).first
           if user
-            user.update_attributes(schedule: schedule)
-            return response_data({}, "schedule updated",200)
+             user.update_attributes(schedule: schedule)
+             data = Hash.new
+             data["schedule"] = schedule
+             return response_data(data,"schedule added", 200)
           else
-            return response_data({}, "user not exist",200)
+             return response_data({},"Not Authorised",401)
           end
       end
 
